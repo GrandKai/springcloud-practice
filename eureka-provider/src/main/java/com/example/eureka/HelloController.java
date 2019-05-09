@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -25,7 +26,7 @@ public class HelloController {
   private EurekaClient eurekaClient;
 
   @GetMapping("/hello")
-  public String hello() {
+  public String hello(@RequestParam("id") String id) {
 //    InstanceInfo instance = discoveryClient.getNextServerFromEureka("STORES", false);
 //    return instance.getHomePageUrl();
 
@@ -34,6 +35,6 @@ public class HelloController {
 
     list.forEach(System.out::println);
 
-    return list.toString();
+    return list.toString() + " id: " + id;
   }
 }
