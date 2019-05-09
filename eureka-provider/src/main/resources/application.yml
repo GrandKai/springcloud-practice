@@ -1,0 +1,15 @@
+
+spring:
+  application:
+    name: eureka-client
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://peer1:1111/eureka, http://peer2:2222/eureka
+
+#    status-page-url: http://${eureka.instance.hostname}/info
+#    health-check-url: http://${eureka.instance.hostname}/health
+#    home-page-url: http://${eureka.instance.hostname}/
