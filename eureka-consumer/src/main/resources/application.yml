@@ -14,3 +14,5 @@ eureka:
       defaultZone: http://peer1:1111/eureka, http://peer2:2222/eureka
   instance:
     hostname: localhost
+
+
