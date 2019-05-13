@@ -17,6 +17,7 @@
     <module>eureka-provider</module>
     <module>eureka-consumer</module>
     <module>alibaba-nacos-discovery-server</module>
+    <module>feign-consumer</module>
   </modules>
 
   <build>
