@@ -1,12 +1,14 @@
 package com.example.eureka;
 
-import com.netflix.discovery.EurekaClient;
 import com.netflix.discovery.EurekaClientConfig;
 import com.netflix.discovery.endpoint.EndpointUtils;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,19 +24,24 @@ public class HelloController {
   private DiscoveryClient discoveryClient;
   @Autowired
   private EurekaClientConfig clientConfig;
-  @Autowired
-  private EurekaClient eurekaClient;
 
   @GetMapping("/hello")
   public String hello(@RequestParam("id") String id) {
-//    InstanceInfo instance = discoveryClient.getNextServerFromEureka("STORES", false);
-//    return instance.getHomePageUrl();
-
-//    EurekaClientConfig clientConfig = new DefaultEurekaClientConfig();
     List<String> list = EndpointUtils.getServiceUrlsFromConfig(clientConfig,"defaultZone", true);
 
     list.forEach(System.out::println);
 
     return list.toString() + " id: " + id;
+  }
+
+  @GetMapping("/hello1")
+  public String hello1(@RequestHeader String name) {
+    return "hello " + name;
+  }
+
+
+  @PostMapping("/hello2")
+  public String hello2(@RequestBody User user) {
+    return "hello " + user.getName() + ", " + user.getAge();
   }
 }

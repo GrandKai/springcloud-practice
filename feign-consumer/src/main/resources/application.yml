@@ -3,3 +3,9 @@ spring:
     name: feign-consumer
 server:
   port: 9090
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://peer1:1111/eureka
