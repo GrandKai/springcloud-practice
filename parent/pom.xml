@@ -11,18 +11,14 @@
 
   <properties>
     <java.version>1.8</java.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
     <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
     <spring-boot.version>2.1.4.RELEASE</spring-boot.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <spring-cloud-alibaba.version>0.2.2.RELEASE</spring-cloud-alibaba.version>
   </properties>
 
   <dependencies>
-
-    <dependency>
-      <artifactId>guava</artifactId>
-      <groupId>com.google.guava</groupId>
-      <version>19.0</version>
-    </dependency>
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -70,7 +66,7 @@
       <dependency>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-        <version>0.2.2.RELEASE</version>
+        <version>${spring-cloud-alibaba.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
