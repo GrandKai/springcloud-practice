@@ -21,7 +21,17 @@ public class ConsumerController {
 
   @GetMapping("consumer")
   public String consumer(@RequestParam("id") String id) {
-    return consumerService.hello(id);
+    long start = System.currentTimeMillis();
+
+    String result = consumerService.hello(id);
+
+    long end = System.currentTimeMillis();
+
+    /**
+     * hystrix 默认超时时间 2s，超过2s，执行 fallbackMethod 方法
+     */
+    log.error("执行时间：{}s", (end - start)/1000);
+    return result;
   }
 
 }

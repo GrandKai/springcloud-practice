@@ -29,9 +29,4 @@ public class RibbonApplication {
     return new RestTemplate();
   }
 
-
-//  @Bean
-//  public BaseLoadBalancer baseLoadBalancer() {
-//    return new BaseLoadBalancer();
-//  }
 }

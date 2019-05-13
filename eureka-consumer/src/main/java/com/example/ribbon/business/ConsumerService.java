@@ -1,10 +1,11 @@
 package com.example.ribbon.business;
 
 import com.example.ribbon.config.Hello;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -19,6 +20,9 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class ConsumerService {
 
+  /**
+   * 注入多个bean到List中
+   */
   @Autowired
   List<Hello> helloList;
 
@@ -31,23 +35,22 @@ public class ConsumerService {
   private LoadBalancerClient loadBalancerClient;
 
 
+  @HystrixCommand(fallbackMethod = "fallbackMethod")
   public String hello(String id) {
 
-    log.debug(helloList.toString());
-
+    int time = ThreadLocalRandom.current().nextInt(5000);
+    try {
+      Thread.sleep(time);
+    } catch (InterruptedException e) {
+      log.error("线程睡眠异常：", e);
+    }
     String result = restTemplate.getForObject("http://{1}/hello?id={2}", String.class, SERVICE_NAME, id);
-
-    log.debug("返回结果：{}", result);
-
-//    ServiceInstance instance = loadBalancerClient.choose(SERVICE_NAME);
-//    log.debug("当前节点：serviceId: {}, instanceId: {}, schema://host:port {}://{}:{}", instance.getServiceId(), instance.getInstanceId(), instance.getScheme(), instance.getHost(), instance.getPort());
-//
-//    String s = String.format("当前节点：serviceId: %s, instanceId: %s, schema://host:port %s://%s:%d", instance.getServiceId(), instance.getInstanceId(), instance.getScheme(), instance.getHost(), instance.getPort());
-
-    StringBuilder sb = new StringBuilder("");
-    sb.append("\r\n");
-    sb.append(result);
-    return sb.toString();
+    log.info("返回结果：{}，线程睡眠时间：{}", result, time);
+    return result;
   }
 
+  public String fallbackMethod(String id) {
+    log.error("熔断器执行方法：circuit breaker method fallbackMethod，参数：{}", id);
+    return "error";
+  }
 }
