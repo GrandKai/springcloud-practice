@@ -20,6 +20,8 @@
     <module>feign-consumer</module>
     <module>hello-service-api</module>
     <module>nacos-consumer</module>
+    <module>zookeeper-provider</module>
+    <module>zookeeper-consumer</module>
   </modules>
 
   <build>
