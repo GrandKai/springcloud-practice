@@ -1,4 +1,4 @@
-package com.example.feign;
+package com.example.service.api;
 
 import lombok.Data;
 

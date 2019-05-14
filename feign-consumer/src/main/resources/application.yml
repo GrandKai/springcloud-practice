@@ -1,6 +1,9 @@
 spring:
   application:
     name: feign-consumer
+  main:
+    allow-bean-definition-overriding: true # 允许bean重写，防止多个 @FeignClient("eureka-provider") 不能启动
+
 server:
   port: 9090
 eureka:

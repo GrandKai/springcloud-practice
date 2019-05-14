@@ -1,5 +1,6 @@
-package com.example.feign;
+package com.example.feign.business;
 
+import com.example.feign.business.model.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

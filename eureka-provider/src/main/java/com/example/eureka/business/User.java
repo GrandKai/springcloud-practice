@@ -1,4 +1,4 @@
-package com.example.eureka;
+package com.example.eureka.business;
 
 import lombok.Data;
 

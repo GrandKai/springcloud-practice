@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date: Created in 2019-05-13 13:13
  * @Modified By:
  */
-@RestController
 @Slf4j
+@RestController
 public class HelloController {
 
   @GetMapping("hello")

@@ -18,6 +18,7 @@
     <module>eureka-consumer</module>
     <module>alibaba-nacos-discovery-server</module>
     <module>feign-consumer</module>
+    <module>hello-service-api</module>
   </modules>
 
   <build>
