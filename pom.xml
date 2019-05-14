@@ -19,6 +19,7 @@
     <module>alibaba-nacos-discovery-server</module>
     <module>feign-consumer</module>
     <module>hello-service-api</module>
+    <module>nacos-consumer</module>
   </modules>
 
   <build>
