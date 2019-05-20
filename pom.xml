@@ -22,6 +22,7 @@
     <module>nacos-consumer</module>
     <module>zookeeper-provider</module>
     <module>zookeeper-consumer</module>
+    <module>com-wechat</module>
   </modules>
 
   <build>
