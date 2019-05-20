@@ -23,6 +23,7 @@
     <module>zookeeper-provider</module>
     <module>zookeeper-consumer</module>
     <module>com-wechat</module>
+    <module>spring-security-oauth2</module>
   </modules>
 
   <build>
