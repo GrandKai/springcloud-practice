@@ -24,6 +24,7 @@
     <module>zookeeper-consumer</module>
     <module>com-wechat</module>
     <module>spring-security-oauth2</module>
+    <module>spring-security-oauth2-server</module>
   </modules>
 
   <build>
