@@ -21,3 +21,4 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.security.oauth2.entity
+  base-packages: com.security.oauth2.mapper
