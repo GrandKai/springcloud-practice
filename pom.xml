@@ -25,6 +25,7 @@
     <module>com-wechat</module>
     <module>spring-security-oauth2</module>
     <module>spring-security-oauth2-server</module>
+    <module>spring-security-oauth2-resource</module>
   </modules>
 
   <build>
