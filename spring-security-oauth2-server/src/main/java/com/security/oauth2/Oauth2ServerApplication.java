@@ -1,6 +1,7 @@
 package com.security.oauth2;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import tk.mybatis.spring.annotation.MapperScan;
 
 /**
  * 认证服务器，用于获取 Token
@@ -10,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Modified By:
  */
 @SpringBootApplication
+@MapperScan(basePackages = "com.security.oauth2.mapper")
 public class Oauth2ServerApplication {
 
   public static void main(String[] args) {

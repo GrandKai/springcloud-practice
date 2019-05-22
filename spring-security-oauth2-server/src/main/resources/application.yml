@@ -21,4 +21,32 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.security.oauth2.entity
-  base-packages: com.security.oauth2.mapper
+  configuration:
+    log-prefix: mybatis-sql
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 日志实现这里使用 StdOutImpl 可以打印到控制台
+    map-underscore-to-camel-case: true
+    aggressive-lazy-loading: true
+    lazy-loading-enabled: true
+    use-column-label: true
+
+logLevel: debug
+
+logging:
+  level:
+    org:
+      apache:
+        ibatis: ${logLevel}
+      springframework:
+        security: ${logLevel}
+    com:
+      security:
+        oauth2:
+          mapper: ${logLevel}
+    java:
+      sql:
+      Connection: ${logLevel}
+      Statement: ${logLevel}
+      PreparedStatement: ${logLevel}
+      ResultSet: ${logLevel} # 打印查询结果
+
+

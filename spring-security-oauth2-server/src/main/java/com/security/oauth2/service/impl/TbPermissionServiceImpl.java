@@ -11,13 +11,13 @@ import com.security.oauth2.entity.TbPermission;
 import com.security.oauth2.mapper.TbPermissionMapper;
 import com.security.oauth2.service.TbPermissionService;
 import java.util.List;
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class TbPermissionServiceImpl implements TbPermissionService {
 
-  @Resource
+  @Autowired
   private TbPermissionMapper tbPermissionMapper;
 
   @Override

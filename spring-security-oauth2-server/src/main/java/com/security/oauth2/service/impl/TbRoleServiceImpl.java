@@ -3,6 +3,7 @@ package com.security.oauth2.service.impl;
 import com.security.oauth2.mapper.TbRoleMapper;
 import com.security.oauth2.service.TbRoleService;
 import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,7 +15,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class TbRoleServiceImpl implements TbRoleService {
 
-  @Resource
+  @Autowired
   private TbRoleMapper tbRoleMapper;
 
 }

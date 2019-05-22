@@ -10,14 +10,14 @@ package com.security.oauth2.service.impl;
 import com.security.oauth2.entity.TbUser;
 import com.security.oauth2.mapper.TbUserMapper;
 import com.security.oauth2.service.TbUserService;
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
 @Service
 public class TbUserServiceImpl implements TbUserService {
 
-  @Resource
+  @Autowired
   private TbUserMapper tbUserMapper;
 
   @Override
