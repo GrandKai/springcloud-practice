@@ -12,7 +12,7 @@
 
   <properties>
     <hikaricp.version>3.2.0</hikaricp.version>
-    <mysql.version>5.1.47</mysql.version>
+    <mysql.version>8.0.28</mysql.version>
 
   </properties>
   <artifactId>spring-security-oauth2</artifactId>
